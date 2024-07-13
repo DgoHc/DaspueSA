@@ -1,0 +1,43 @@
+// Definición de Contexto Principal para el Sistema de Ecommerce
+ContextMap DaspueMap {
+    contains GestionInventariosContext
+    contains GestionClientesContext
+    contains GestionReservasContext
+    contains GestionPedidosContext
+    contains GestionPagosContext
+    contains GestionPersonalContext
+    contains GestionProcesosContext
+
+    /* Cooperación */
+    GestionClientesContext [P]<->[P] GestionPedidosContext
+    GestionReservasContext [P]<->[P] GestionClientesContext
+    GestionReservasContext [P]<->[P] GestionPagosContext
+
+    /* Conformista */
+    //GestionClientesContext [CF]<-[PL] GestionAutorizacionAutenticacionContext
+
+    /* Anti-corruption layer */
+    
+    /* Open-Host service */
+    GestionInventariosContext [U, OHS]->[D] GestionPedidosContext
+}
+
+BoundedContext GestionInventariosContext {
+}
+
+BoundedContext GestionClientesContext {
+}
+
+BoundedContext GestionReservasContext {
+}
+BoundedContext GestionPedidosContext{
+
+}
+BoundedContext GestionPagosContext {
+}
+
+BoundedContext GestionPersonalContext {
+}
+
+BoundedContext GestionProcesosContext {
+}
