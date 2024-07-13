@@ -3,15 +3,13 @@ ContextMap DaspueMap {
     contains GestionInventariosContext
     contains GestionClientesContext
     contains GestionReservasContext
-    contains GestionPedidosContext
-    contains GestionPagosContext
-    contains GestionPersonalContext
-    contains GestionProcesosContext
+    contains GestionVentasContext
+    contains GestionProduccionContext
+    contains GestionMarketingContext
 
     /* Cooperación */
-    GestionClientesContext [P]<->[P] GestionPedidosContext
     GestionReservasContext [P]<->[P] GestionClientesContext
-    GestionReservasContext [P]<->[P] GestionPagosContext
+    GestionReservasContext [P]<->[P] GestionVentasContext
 
     /* Conformista */
     //GestionClientesContext [CF]<-[PL] GestionAutorizacionAutenticacionContext
@@ -19,7 +17,7 @@ ContextMap DaspueMap {
     /* Anti-corruption layer */
     
     /* Open-Host service */
-    GestionInventariosContext [U, OHS]->[D] GestionPedidosContext
+    GestionInventariosContext [U, OHS]->[D] GestionVentasContext
 }
 
 BoundedContext GestionInventariosContext {
@@ -30,14 +28,12 @@ BoundedContext GestionClientesContext {
 
 BoundedContext GestionReservasContext {
 }
-BoundedContext GestionPedidosContext{
 
-}
-BoundedContext GestionPagosContext {
+BoundedContext GestionVentasContext {
 }
 
-BoundedContext GestionPersonalContext {
+BoundedContext GestionProduccionContext {
 }
 
-BoundedContext GestionProcesosContext {
+BoundedContext GestionMarketingContext {
 }
