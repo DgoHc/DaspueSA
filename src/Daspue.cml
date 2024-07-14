@@ -11,12 +11,13 @@ ContextMap DaspueMap {
     GestionClientesContext [U,PL,OHS]->[D] GestionReservasContext
 
     GestionClientesContext [U,PL,OHS]->[D] GestionVentasContext
-    GestionReservasContext [U,OHS]->[D] GestionMarketingContext
-    GestionReservasContext [U,OHS]->[D] GestionVentasContext
+    GestionReservasContext [U,PL,OHS]->[D] GestionMarketingContext
+    GestionReservasContext [U,PL,OHS]->[D] GestionVentasContext
     GestionProduccionContext [U]->[D,ACL] GestionMarketingContext
-    GestionVentasContext [U]->[D,ACL] GestionMarketingContext
-    GestionVentasContext [U]->[D,ACL] GestionInventariosContext
-    GestionInventariosContext [U]->[D,ACL] GestionProduccionContext
+    GestionVentasContext [U,PL,OHS]->[D] GestionMarketingContext
+    GestionVentasContext [U,PL,OHS]->[D] GestionProduccionContext
+    GestionInventariosContext [U,PL,OHS]->[D] GestionVentasContext
+    GestionInventariosContext [U,PL,OHS]->[D] GestionProduccionContext
 }
 
 BoundedContext GestionInventariosContext {
