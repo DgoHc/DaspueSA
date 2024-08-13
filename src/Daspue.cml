@@ -4,20 +4,15 @@ ContextMap DaspueMap {
     contains GestionClientesContext
     contains GestionReservasContext
     contains GestionVentasContext
-    contains GestionProduccionContext
-    contains GestionMarketingContext
+    contains GestionPedidosContext
+ 
 
-    GestionClientesContext [PL,OHS]->[D] GestionMarketingContext
-    GestionClientesContext [U,PL,OHS]->[D] GestionReservasContext
-
-    GestionClientesContext [U,PL,OHS]->[D] GestionVentasContext
-    GestionReservasContext [U,PL,OHS]->[D] GestionMarketingContext
-    GestionReservasContext [U,PL,OHS]->[D] GestionVentasContext
-    GestionProduccionContext [U]->[D,ACL] GestionMarketingContext
-    GestionVentasContext [U,PL,OHS]->[D] GestionMarketingContext
-    GestionVentasContext [U,PL,OHS]->[D] GestionProduccionContext
-    GestionInventariosContext [U,PL,OHS]->[D] GestionVentasContext
-    GestionInventariosContext [U,PL,OHS]->[D] GestionProduccionContext
+    
+    GestionClientesContext [U]->[D] GestionReservasContext
+    GestionClientesContext [U]->[D] GestionPedidosContext
+    GestionClientesContext [U]->[D] GestionVentasContext
+    GestionPedidosContext  [P]<->[P] GestionInventariosContext
+    
 }
 
 BoundedContext GestionInventariosContext {
@@ -32,8 +27,6 @@ BoundedContext GestionReservasContext {
 BoundedContext GestionVentasContext {
 }
 
-BoundedContext GestionProduccionContext {
-}
 
-BoundedContext GestionMarketingContext {
+BoundedContext GestionPedidosContext {
 }
